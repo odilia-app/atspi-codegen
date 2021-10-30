@@ -44,6 +44,10 @@ fn main() {
     let out_dir = std::env::var_os("OUT_DIR").unwrap();
     let mut opts = dbus_codegen::GenOpts::default();
     opts.methodtype = None; // Generate client code
+    #[cfg(feature = "nonblock")]
+    {
+        opts.connectiontype = dbus_codegen::ConnectionType::Nonblock;
+    }
 
     for i in 0..NAMES.len() {
         let name = NAMES[i];

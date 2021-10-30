@@ -8,6 +8,7 @@ repository = "https://github.com/yggdrasil-sr/atspi-codegen"
 edition = "2021"
 
 [features]
+nonblock = ["dbus/futures"]
 
 [build-dependencies]
 dbus-codegen = "0.10.0"
